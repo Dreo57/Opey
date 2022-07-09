@@ -74,6 +74,28 @@
        },
 
     "Outputs": {
+      "HostZoneId": {
+        "Value": {
+          "Fn::GetAtt": [
+            "PracALB",
+            "CanonicalHostedZoneID"
+          ]
+        },
+        "Export": {
+          "Name": "ALBHostedId"
+        },
+      "DNSName": {
+        "Value": {
+          "Fn::GetAtt": [
+            "PracALB",
+            "DNSName"
+          ]
+        },
+        "Export": {
+          "Name": "ALBDNSName"
+        }
+      }
+      
 
     }
 }
