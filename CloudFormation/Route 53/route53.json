@@ -1,0 +1,45 @@
+{
+"AWSTemplateFormatVersion": "2010-09-09",
+    "Description": "",
+    "Metadata": {
+
+    },
+    "Parameters": {
+        
+    
+    },
+    "Mappings": {
+
+    },
+    "Conditions": {
+
+    },
+    "Resources": {
+        
+        "route53RS": {
+            "Type": "AWS::Route53::RecordSet",
+            "Properties": {
+                "Name": "dreoconsulting.com",
+                "Type": "A",
+                "AliasTarget": {
+                    "DNSName": {
+                        "Fn::ImportValue": {
+                            "Fn::Sub": "ALBDNSName"
+                        }
+                    },
+                    "HostedZoneId": {
+                        "Fn::ImportValue": {
+                            "Fn::Sub": "CanonicalHostedZoneID"
+                        }
+                    }
+                },
+                "TTL": 300,
+            }
+        }
+                
+
+    },
+    "Outputs": {
+
+    }
+}
