@@ -40,7 +40,7 @@
             "FromPort" : 22,
             "ToPort" : 22,
             "CidrIp" : "0.0.0.0/0"
-              }],
+              }]
             }
         },
       "RDSSG" : {
@@ -53,7 +53,7 @@
             "FromPort" : 3306,
             "ToPort" : 3306,
             "SourceSecurityGroupId" : { "Ref": "PracSG" }
-              }],
+              }]
             }
         }
 
@@ -73,5 +73,5 @@
           "Name": "RdssecGrpId"
           }
         }
-    },
+    }
 }

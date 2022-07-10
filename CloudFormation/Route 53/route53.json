@@ -6,7 +6,18 @@
     },
     "Parameters": {
         
-    
+        "DomainName": {
+            "Description": "Name of the Domain",
+            "Type": "String",
+            "Default": "dreoconsulting.com"
+        },
+        
+        "HostedZoneId": {
+            "Description": "AWS Route53 Hosted Zone",
+            "Type": "AWS::SSM::Parameter::Value<String>",
+            "Default": "/Dreo/HostedZoneId"
+        }
+           
     },
     "Mappings": {
 
@@ -16,11 +27,14 @@
     },
     "Resources": {
         
-        "route53RS": {
+        "Route53RS": {
             "Type": "AWS::Route53::RecordSet",
             "Properties": {
-                "Name": "dreoconsulting.com",
+                "Name": 
+                { "Ref": "DomainName" },
                 "Type": "A",
+                "HostedZoneId": 
+                { "Ref": "HostedZoneId" },
                 "AliasTarget": {
                     "DNSName": {
                         "Fn::ImportValue": {
@@ -29,14 +43,12 @@
                     },
                     "HostedZoneId": {
                         "Fn::ImportValue": {
-                            "Fn::Sub": "CanonicalHostedZoneID"
+                            "Fn::Sub": "ALBHostedId"
                         }
                     }
-                },
-                "TTL": 300,
+                }
             }
-        }
-                
+        }             
 
     },
     "Outputs": {

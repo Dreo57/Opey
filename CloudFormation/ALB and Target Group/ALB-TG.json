@@ -80,11 +80,13 @@
             "PracALB",
             "CanonicalHostedZoneID"
           ]
-        },
+         },
         "Export": {
           "Name": "ALBHostedId"
-        },
-      "DNSName": {
+          }
+       },
+
+        "DNSName": {
         "Value": {
           "Fn::GetAtt": [
             "PracALB",
@@ -95,7 +97,5 @@
           "Name": "ALBDNSName"
         }
       }
-      
-
     }
 }
