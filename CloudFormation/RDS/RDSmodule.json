@@ -64,7 +64,14 @@
                 "io1",
                 "standard"
             ]
+        },
+        
+        "DBSUbnet": {
+            "Description": "Available Subnet Ids",
+            "Type": "List<AWS::EC2::Subnet::Id>",
+            "ConstraintDescription": "must be an existing Subnet in the VPC"
         }
+        
     },
     "Mappings": {
 
@@ -98,8 +105,9 @@
          "Type": "AWS::RDS::DBSubnetGroup",
          "Properties": {
             "DBSubnetGroupDescription": "Subnet Group for database",
-            "SubnetIds": [{"Fn::ImportValue" : {"Fn::Sub": "PracprvtSubId"}},
-              {"Fn::ImportValue" : {"Fn::Sub": "PracprvtSubId2"}}],
+            "SubnetIds": [
+            { "Ref": "DBSUbnet" }
+            ],
             "Tags": [ { "Key": "Name", "Value":  "WfRdsSubgrp" } ]
          }
       }

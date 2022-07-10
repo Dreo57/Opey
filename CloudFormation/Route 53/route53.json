@@ -14,8 +14,8 @@
         
         "HostedZoneId": {
             "Description": "AWS Route53 Hosted Zone",
-            "Type": "AWS::SSM::Parameter::Value<String>",
-            "Default": "/Dreo/HostedZoneId"
+            "Type": "AWS::Route53::HostedZone::Id",
+            "ConstraintDescription": "must be the name of an existing EC2 KeyPair"
         }
            
     },

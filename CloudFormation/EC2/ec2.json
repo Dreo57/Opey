@@ -131,7 +131,7 @@
                   "Fn::Base64": "#!/bin/bash\nsudo yum update -y\nsudo yum install httpd -y\ncd /var/www/html\necho \"Today is May 29 2021, The Awesome JJTech Bliss Batch students are now studying Route53, and will explore all the routing policies including failover based routing, weighted based routing, latency based routing,geolocation and simple based routing policies\" > index.html\nservice httpd start\nchkconfig httpd on\n"
                         }
                       }
-                    },
+                    }
                   },
     "Outputs": {
       "InstanceId1" : {

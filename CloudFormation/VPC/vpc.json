@@ -68,7 +68,11 @@
           "VpcId": { "Ref": "PracVpc" },
           "MapPublicIpOnLaunch" : true,
           "AvailabilityZone": { "Fn::Select" : [ 1, {"Fn::GetAZs" : { "Ref" : "AWS::Region" }} ] },
-          "CidrBlock": { "Fn::Select" : [ 0, { "Fn::Cidr" : [{ "Fn::GetAtt" : [ "PracVpc", "CidrBlock" ]}, 4, 8 ]}]}
+          "CidrBlock": { "Fn::Select" : [ 0, { "Fn::Cidr" : [{ "Fn::GetAtt" : [ "PracVpc", "CidrBlock" ]}, 4, 8 ]}]},
+          
+          "Tags":[
+          { "Key": "Name", "Value":  "PublicSN1" }
+          ]
         }
       },
       "PracSubPrvt": {
@@ -76,7 +80,13 @@
         "Properties": {
           "VpcId": { "Ref": "PracVpc" },
           "AvailabilityZone": { "Fn::Select" : [ 1, {"Fn::GetAZs" : { "Ref" : "AWS::Region" }} ] },
-          "CidrBlock": { "Fn::Select" : [ 1, { "Fn::Cidr" : [{ "Fn::GetAtt" : [ "PracVpc", "CidrBlock" ]}, 4, 8 ]}]}
+          "CidrBlock": { "Fn::Select" : [ 1, { "Fn::Cidr" : [{ "Fn::GetAtt" : [ "PracVpc", "CidrBlock" ]}, 4, 8 ]}]},
+          "Tags": [
+            {
+              "Key": "Name",
+              "Value": "PrivateSN1"
+            }
+          ]
         }
       },
       "PracSubPub": {
@@ -85,7 +95,13 @@
           "VpcId": { "Ref": "PracVpc" },
           "MapPublicIpOnLaunch" : true,
           "AvailabilityZone": { "Fn::Select" : [ 2, {"Fn::GetAZs" : { "Ref" : "AWS::Region" }} ] },
-          "CidrBlock": { "Fn::Select" : [ 2, { "Fn::Cidr" : [{ "Fn::GetAtt" : [ "PracVpc", "CidrBlock" ]}, 4, 8 ]}]}
+          "CidrBlock": { "Fn::Select" : [ 2, { "Fn::Cidr" : [{ "Fn::GetAtt" : [ "PracVpc", "CidrBlock" ]}, 4, 8 ]}]},
+          "Tags": [
+            {
+              "Key": "Name",
+              "Value": "PublicSN2"
+            }
+          ]
         }
       },
       "PracSubPrvt2": {
@@ -94,7 +110,13 @@
           "VpcId": { "Ref": "PracVpc" },
           "MapPublicIpOnLaunch" : true,
           "AvailabilityZone": { "Fn::Select" : [ 3, {"Fn::GetAZs" : { "Ref" : "AWS::Region" }} ] },
-          "CidrBlock": { "Fn::Select" : [ 3, { "Fn::Cidr" : [{ "Fn::GetAtt" : [ "PracVpc", "CidrBlock" ]}, 4, 8 ]}]}
+          "CidrBlock": { "Fn::Select" : [ 3, { "Fn::Cidr" : [{ "Fn::GetAtt" : [ "PracVpc", "CidrBlock" ]}, 4, 8 ]}]},
+          "Tags": [
+            {
+              "Key": "Name",
+              "Value": "PrivateSN2"
+            }
+          ]
         }
       },
       "PracGW": {
